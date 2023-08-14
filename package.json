@@ -8,6 +8,7 @@
     "test": "vitest"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "eslint": "^8.47.0",
     "eslint-config-standard-with-typescript": "^37.0.0",
@@ -16,5 +17,8 @@
     "eslint-plugin-promise": "^6.1.1",
     "typescript": "^5.1.6",
     "vitest": "^0.34.1"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0"
   }
 }
