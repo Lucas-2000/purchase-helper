@@ -1,6 +1,7 @@
 import { UsersRepository } from "./../../../repositories/usersRepository";
 import { User, UserProps } from "../../../entities/user";
 import { EnumUserType } from "../../../utils/dicts/enumUserType";
+import { randomUUID } from "node:crypto";
 
 interface CreateUserRequest {
   id?: string;
@@ -16,6 +17,7 @@ export class CreateUser {
   constructor(private usersRepository: UsersRepository) {}
 
   async execute({
+    id,
     username,
     email,
     password,
@@ -33,6 +35,7 @@ export class CreateUser {
     if (verifyEmailExists) throw new Error("Email already exists");
 
     const user = new User({
+      id: id ?? randomUUID(),
       username,
       email,
       password,
