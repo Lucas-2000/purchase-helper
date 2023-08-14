@@ -1,9 +1,11 @@
+import { EnumUserType } from "../utils/dicts/enumUserType";
+
 export interface UserProps {
   id: string;
   username: string;
   email: string;
   password: string;
-  type: string;
+  type: EnumUserType;
 }
 
 export class User {
