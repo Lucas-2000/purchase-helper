@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { InMemoryUsersRepository } from "../../../repositories/inMemory/inMemoryUsersRepository";
 import { FindAllUsersService } from "./findAllUsersService";
-import { CreateUser } from "../create/createUserService";
+import { CreateUserService } from "../create/createUserService";
 import { EnumUserType } from "../../../utils/dicts/enumUserType";
 
 describe("Find all users", () => {
@@ -10,7 +10,7 @@ describe("Find all users", () => {
 
     const findAllUsers = new FindAllUsersService(usersRepository);
 
-    const createUser = new CreateUser(usersRepository);
+    const createUser = new CreateUserService(usersRepository);
 
     const user = await createUser.execute({
       username: "john",

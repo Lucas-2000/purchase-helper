@@ -1,14 +1,13 @@
 import { describe, expect, it } from "vitest";
-import { User } from "../../../entities/user";
 import { EnumUserType } from "../../../utils/dicts/enumUserType";
-import { CreateUser } from "./createUserService";
+import { CreateUserService } from "./createUserService";
 import { InMemoryUsersRepository } from "../../../repositories/inMemory/inMemoryUsersRepository";
 
 describe("Create user", () => {
   it("should be able to create an user", async () => {
     const usersRepository = new InMemoryUsersRepository();
 
-    const createUser = new CreateUser(usersRepository);
+    const createUser = new CreateUserService(usersRepository);
 
     await expect(
       createUser.execute({
@@ -23,7 +22,7 @@ describe("Create user", () => {
   it("should not be able to create an user if password has less than 8 characters", async () => {
     const usersRepository = new InMemoryUsersRepository();
 
-    const createUser = new CreateUser(usersRepository);
+    const createUser = new CreateUserService(usersRepository);
 
     await expect(
       createUser.execute({
@@ -38,7 +37,7 @@ describe("Create user", () => {
   it("should not be able to create an user if username already exists", async () => {
     const usersRepository = new InMemoryUsersRepository();
 
-    const createUser = new CreateUser(usersRepository);
+    const createUser = new CreateUserService(usersRepository);
 
     await createUser.execute({
       username: "john",
@@ -60,7 +59,7 @@ describe("Create user", () => {
   it("should not be able to create an user if email already exists", async () => {
     const usersRepository = new InMemoryUsersRepository();
 
-    const createUser = new CreateUser(usersRepository);
+    const createUser = new CreateUserService(usersRepository);
 
     await createUser.execute({
       username: "john",
