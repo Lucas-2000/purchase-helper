@@ -11,6 +11,10 @@ export interface UserProps {
 export class User {
   private props: UserProps;
 
+  constructor(props: UserProps) {
+    this.props = props;
+  }
+
   get id() {
     return this.props.id;
   }
@@ -29,5 +33,15 @@ export class User {
 
   get type() {
     return this.props.type;
+  }
+
+  getSummary(): UserProps {
+    return {
+      id: this.props.id,
+      username: this.props.username,
+      email: this.props.email,
+      password: this.props.password,
+      type: this.props.type,
+    };
   }
 }
