@@ -1,7 +1,7 @@
 import { EnumUserType } from "../utils/dicts/enumUserType";
 
 export interface UserProps {
-  id: string;
+  id?: string;
   username: string;
   email: string;
   password: string;
