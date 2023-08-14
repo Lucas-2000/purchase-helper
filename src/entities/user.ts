@@ -12,6 +12,12 @@ export class User {
   private props: UserProps;
 
   constructor(props: UserProps) {
+    const { password } = props;
+
+    if (password.length < 8) {
+      throw new Error(`Invalid password lenght`);
+    }
+
     this.props = props;
   }
 

@@ -7,9 +7,21 @@ test("create an user", () => {
     id: "1",
     username: "john",
     email: "johndoe@example.com",
-    password: "test123",
+    password: "test1234",
     type: EnumUserType.standard,
   });
 
   expect(user).toBeInstanceOf(User);
+});
+
+test("cannot create an user with password less than 8 characters", () => {
+  expect(() => {
+    return new User({
+      id: "1",
+      username: "john",
+      email: "johndoe@example.com",
+      password: "test123",
+      type: EnumUserType.standard,
+    });
+  }).toThrow();
 });
