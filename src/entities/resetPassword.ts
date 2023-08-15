@@ -1,7 +1,7 @@
 export interface ResetPasswordProps {
-  id: string;
-  token: string;
-  expiresAt: Date;
+  id?: string;
+  token?: string;
+  expiresAt?: Date;
   userId: string;
 }
 
@@ -11,7 +11,8 @@ export class ResetPassword {
   constructor(props: ResetPasswordProps) {
     const { expiresAt } = props;
 
-    if (this.hasExpired(expiresAt)) throw new Error("Token has expired");
+    if (this.hasExpired(expiresAt as Date))
+      throw new Error("Token has expired");
 
     this.props = props;
   }
