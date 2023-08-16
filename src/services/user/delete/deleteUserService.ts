@@ -10,9 +10,9 @@ export class DeleteUserService {
   constructor(private usersRepository: UsersRepository) {}
 
   async execute({ id }: DeleteUserRequest): Promise<DeleteUserResponse> {
-    const verifyIndex = await this.usersRepository.findIndex(id);
+    const userExists = await this.usersRepository.findById(id);
 
-    if (verifyIndex < 0) throw new Error("User not found!");
+    if (!userExists) throw new Error("User not found!");
 
     await this.usersRepository.delete(id);
 

@@ -23,9 +23,9 @@ export class UpdateUserService {
     password,
     type,
   }: UpdateUserRequest): Promise<UpdateUserResponse> {
-    const verifyIndex = await this.usersRepository.findIndex(id);
+    const userExists = await this.usersRepository.findById(id);
 
-    if (verifyIndex < 0) throw new Error("User not found!");
+    if (!userExists) throw new Error("User not found!");
 
     if (password) {
       if (password.length < 8)
