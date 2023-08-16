@@ -6,7 +6,7 @@ export class ProductProps {
   quantity: number;
   purchaseStart?: Date;
   purchaseFinish?: Date;
-  userId: string;
+  userId?: string;
 }
 
 export class Product {
