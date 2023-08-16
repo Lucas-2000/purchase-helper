@@ -31,9 +31,9 @@ export class UpdateProductService {
     purchaseFinish,
     userId,
   }: UpdateProductRequest): Promise<UpdateProductResponse> {
-    const verifyIndex = await this.usersRepository.findIndex(id);
+    const product = await this.usersRepository.findById(id);
 
-    if (verifyIndex < 0) throw new Error("Product not found!");
+    if (!product) throw new Error("Product not found!");
 
     const user = await this.usersRepository.findById(userId as string);
 
