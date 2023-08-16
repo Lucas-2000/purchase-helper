@@ -1,3 +1,4 @@
+import { UsersRepository } from "./../../../repositories/usersRepository";
 import { Product, ProductProps } from "../../../entities/product";
 import { ProductsRepository } from "./../../../repositories/productsRepository";
 import { randomUUID } from "node:crypto";
@@ -16,7 +17,10 @@ interface CreateProductRequest {
 type CreateProductResponse = ProductProps;
 
 export class CreateProductService {
-  constructor(private productsRepository: ProductsRepository) {}
+  constructor(
+    private productsRepository: ProductsRepository,
+    private usersRepository: UsersRepository
+  ) {}
 
   async execute({
     id,
@@ -28,6 +32,10 @@ export class CreateProductService {
     purchaseFinish,
     userId,
   }: CreateProductRequest): Promise<CreateProductResponse> {
+    const user = await this.usersRepository.findById(userId);
+
+    if (!user) throw new Error("User not found");
+
     const product = new Product({
       id: id ?? randomUUID(),
       name,
