@@ -4,6 +4,7 @@ import { FindAllUsersFactory } from "../services/user/findAll/findAllUsersFactor
 import { FindUserByIdFactory } from "../services/user/findById/findUserByIdFactory";
 import { UpdateUserFactory } from "../services/user/update/updateUserFactory";
 import { DeleteUserFactory } from "../services/user/delete/deleteUserFactory";
+import { AuthUserFactory } from "../services/user/auth/authUserFactory";
 
 const userRoutes = Router();
 
@@ -21,6 +22,9 @@ userRoutes.put("/:id", (req: Request, res: Response) =>
 );
 userRoutes.delete("/:id", (req: Request, res: Response) =>
   DeleteUserFactory().handle(req, res)
+);
+userRoutes.post("/login", (req: Request, res: Response) =>
+  AuthUserFactory().handle(req, res)
 );
 
 export { userRoutes };
