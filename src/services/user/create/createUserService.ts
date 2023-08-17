@@ -46,7 +46,7 @@ export class CreateUserService {
       username,
       email,
       password: hash,
-      type,
+      type: type ?? EnumUserType.standard,
     });
 
     await this.usersRepository.create(user);
