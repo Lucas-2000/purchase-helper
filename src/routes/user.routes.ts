@@ -5,6 +5,7 @@ import { FindUserByIdFactory } from "../services/user/findById/findUserByIdFacto
 import { UpdateUserFactory } from "../services/user/update/updateUserFactory";
 import { DeleteUserFactory } from "../services/user/delete/deleteUserFactory";
 import { AuthUserFactory } from "../services/user/auth/authUserFactory";
+import { GenerateResetPasswordFactory } from "../services/resetPassword/generate/generateResetPasswordFactory";
 
 const userRoutes = Router();
 
@@ -25,6 +26,9 @@ userRoutes.delete("/:id", (req: Request, res: Response) =>
 );
 userRoutes.post("/login", (req: Request, res: Response) =>
   AuthUserFactory().handle(req, res)
+);
+userRoutes.post("/reset-password", (req: Request, res: Response) =>
+  GenerateResetPasswordFactory().handle(req, res)
 );
 
 export { userRoutes };
