@@ -4,7 +4,7 @@ import { InMemoryProductsRepository } from "../../../repositories/inMemory/inMem
 import { InMemoryUsersRepository } from "../../../repositories/inMemory/inMemoryUsersRepository";
 import { CreateProductService } from "../create/createProductService";
 import { CreateUserService } from "../../user/create/createUserService";
-import { EnumUserType } from "../../../utils/dicts/enumUserType";
+import { EnumUserType } from "@prisma/client";
 
 describe("Find product by user id and product id", () => {
   it("should be able to find a product by user id and product id", async () => {

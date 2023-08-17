@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 import { InMemoryUsersRepository } from "../../../repositories/inMemory/inMemoryUsersRepository";
 import { InMemoryResetPasswordRepository } from "./../../../repositories/inMemory/inMemoryResetPasswordRepository";
 import { CreateUserService } from "../../user/create/createUserService";
-import { EnumUserType } from "../../../utils/dicts/enumUserType";
 import { GenerateResetPasswordService } from "./generateResetPasswordService";
+import { EnumUserType } from "@prisma/client";
 
 describe("Generate reset password", () => {
   it("should be able to generate reset password", async () => {

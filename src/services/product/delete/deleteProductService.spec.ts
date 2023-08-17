@@ -1,10 +1,10 @@
 import { CreateUserService } from "./../../user/create/createUserService";
 import { InMemoryUsersRepository } from "./../../../repositories/inMemory/inMemoryUsersRepository";
 import { describe, expect, it } from "vitest";
-import { EnumUserType } from "../../../utils/dicts/enumUserType";
 import { InMemoryProductsRepository } from "../../../repositories/inMemory/inMemoryProductsRepository";
 import { CreateProductService } from "../create/createProductService";
 import { DeleteProductService } from "./deleteProductService";
+import { EnumUserType } from "@prisma/client";
 
 describe("Delete product", () => {
   it("should be able to delete a product", async () => {

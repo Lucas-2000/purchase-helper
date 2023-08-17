@@ -1,6 +1,6 @@
+import { EnumUserType } from "@prisma/client";
 import { User, UserProps } from "../../../entities/user";
 import { UsersRepository } from "../../../repositories/usersRepository";
-import { EnumUserType } from "../../../utils/dicts/enumUserType";
 import bcrypt from "bcrypt";
 
 interface UpdateUserRequest {

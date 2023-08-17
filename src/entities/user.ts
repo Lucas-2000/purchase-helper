@@ -1,4 +1,4 @@
-import { EnumUserType } from "../utils/dicts/enumUserType";
+import { EnumUserType } from "@prisma/client";
 
 export interface UserProps {
   id?: string;

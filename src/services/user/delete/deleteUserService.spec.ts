@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { InMemoryUsersRepository } from "../../../repositories/inMemory/inMemoryUsersRepository";
 import { CreateUserService } from "../create/createUserService";
 import { DeleteUserService } from "./deleteUserService";
-import { EnumUserType } from "../../../utils/dicts/enumUserType";
+import { EnumUserType } from "@prisma/client";
 
 describe("Delete user", () => {
   it("should be able to delete an user", async () => {

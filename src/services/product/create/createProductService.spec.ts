@@ -2,8 +2,8 @@ import { InMemoryUsersRepository } from "./../../../repositories/inMemory/inMemo
 import { InMemoryProductsRepository } from "./../../../repositories/inMemory/inMemoryProductsRepository";
 import { describe, expect, it } from "vitest";
 import { CreateProductService } from "./createProductService";
-import { EnumUserType } from "../../../utils/dicts/enumUserType";
 import { CreateUserService } from "../../user/create/createUserService";
+import { EnumUserType } from "@prisma/client";
 describe("Create product", () => {
   it("should be able to create a product", async () => {
     const productsRepository = new InMemoryProductsRepository();

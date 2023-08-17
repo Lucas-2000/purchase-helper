@@ -1,4 +1,4 @@
-import { EnumUserType } from "../utils/dicts/enumUserType";
+import { EnumUserType } from "@prisma/client";
 import { User } from "./user";
 import { expect, test } from "vitest";
 

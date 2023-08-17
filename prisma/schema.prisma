@@ -16,6 +16,8 @@ model User {
   email    String       @unique
   password String
   type     EnumUserType
+
+  @@map("users")
 }
 
 enum EnumUserType {

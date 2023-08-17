@@ -4,7 +4,7 @@ import { InMemoryUsersRepository } from "../../../repositories/inMemory/inMemory
 import { CreateProductService } from "../create/createProductService";
 import { CreateUserService } from "../../user/create/createUserService";
 import { UpdateProductService } from "./updateProductService";
-import { EnumUserType } from "../../../utils/dicts/enumUserType";
+import { EnumUserType } from "@prisma/client";
 
 describe("Update product service", () => {
   it("should be able to update a product", async () => {

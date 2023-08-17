@@ -3,8 +3,8 @@ import { InMemoryUsersRepository } from "../../../repositories/inMemory/inMemory
 import { InMemoryResetPasswordRepository } from "../../../repositories/inMemory/inMemoryResetPasswordRepository";
 import { CreateUserService } from "../../user/create/createUserService";
 import { GenerateResetPasswordService } from "../generate/generateResetPasswordService";
-import { EnumUserType } from "../../../utils/dicts/enumUserType";
 import { FindByTokenResetPasswordService } from "./findByTokenResetPasswordService";
+import { EnumUserType } from "@prisma/client";
 
 describe("Find by token reset password", () => {
   it("should be able to find by token a reset password", async () => {

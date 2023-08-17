@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { InMemoryUsersRepository } from "../../../repositories/inMemory/inMemoryUsersRepository";
 import { CreateUserService } from "../create/createUserService";
 import { FindUserByIdService } from "./findUserByIdService";
-import { EnumUserType } from "../../../utils/dicts/enumUserType";
+import { EnumUserType } from "@prisma/client";
 
 describe("Find user by id", () => {
   it("should be able to find a user by id", async () => {

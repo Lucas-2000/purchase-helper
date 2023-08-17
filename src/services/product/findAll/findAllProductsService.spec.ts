@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { EnumUserType } from "../../../utils/dicts/enumUserType";
 import { InMemoryProductsRepository } from "../../../repositories/inMemory/inMemoryProductsRepository";
 import { InMemoryUsersRepository } from "../../../repositories/inMemory/inMemoryUsersRepository";
 import { CreateProductService } from "../create/createProductService";
 import { CreateUserService } from "../../user/create/createUserService";
 import { FindAllProductsService } from "./findAllProductsService";
+import { EnumUserType } from "@prisma/client";
 
 describe("Find all produts", () => {
   it("should be able to find all users", async () => {

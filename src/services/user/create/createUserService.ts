@@ -1,8 +1,8 @@
 import { UsersRepository } from "./../../../repositories/usersRepository";
 import { User, UserProps } from "../../../entities/user";
-import { EnumUserType } from "../../../utils/dicts/enumUserType";
 import { randomUUID } from "node:crypto";
 import bcrypt from "bcrypt";
+import { EnumUserType } from "@prisma/client";
 
 interface CreateUserRequest {
   id?: string;

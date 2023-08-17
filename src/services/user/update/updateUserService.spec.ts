@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { InMemoryUsersRepository } from "../../../repositories/inMemory/inMemoryUsersRepository";
 import { CreateUserService } from "../create/createUserService";
-import { EnumUserType } from "../../../utils/dicts/enumUserType";
 import { UpdateUserService } from "./updateUserService";
+import { EnumUserType } from "@prisma/client";
 
 describe("Update user", () => {
   it("should be able to update an user", async () => {
