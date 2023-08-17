@@ -7,6 +7,7 @@ import { DeleteUserFactory } from "../services/user/delete/deleteUserFactory";
 import { AuthUserFactory } from "../services/user/auth/authUserFactory";
 import { GenerateResetPasswordFactory } from "../services/resetPassword/generate/generateResetPasswordFactory";
 import { FindByTokenResetPasswordFactory } from "../services/resetPassword/findByToken/findByTokenResetPasswordFactory";
+import { SendResetPasswordEmailFactory } from "../services/email/reset/sendResetPasswordEmailFactory";
 
 const userRoutes = Router();
 
@@ -33,6 +34,9 @@ userRoutes.post("/reset-password", (req: Request, res: Response) =>
 );
 userRoutes.get("/reset-password/:token", (req: Request, res: Response) =>
   FindByTokenResetPasswordFactory().handle(req, res)
+);
+userRoutes.post("/reset-password/send", (req: Request, res: Response) =>
+  SendResetPasswordEmailFactory().handle(req, res)
 );
 
 export { userRoutes };
