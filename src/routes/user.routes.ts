@@ -3,6 +3,7 @@ import { CreateUserFactory } from "../services/user/create/createUserFactory";
 import { FindAllUsersFactory } from "../services/user/findAll/findAllUsersFactory";
 import { FindUserByIdFactory } from "../services/user/findById/findUserByIdFactory";
 import { UpdateUserFactory } from "../services/user/update/updateUserFactory";
+import { DeleteUserFactory } from "../services/user/delete/deleteUserFactory";
 
 const userRoutes = Router();
 
@@ -17,6 +18,9 @@ userRoutes.get("/:id", (req: Request, res: Response) =>
 );
 userRoutes.put("/:id", (req: Request, res: Response) =>
   UpdateUserFactory().handle(req, res)
+);
+userRoutes.delete("/:id", (req: Request, res: Response) =>
+  DeleteUserFactory().handle(req, res)
 );
 
 export { userRoutes };
