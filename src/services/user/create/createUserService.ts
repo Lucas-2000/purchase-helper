@@ -38,6 +38,9 @@ export class CreateUserService {
     if (password.length < 8)
       throw new Error("Password must be at least 8 characters");
 
+    if (type !== EnumUserType.standard && type !== EnumUserType.premium)
+      throw new Error("Type must be standard or premium");
+
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
 
