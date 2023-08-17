@@ -27,6 +27,22 @@ export class UpdateUserService {
 
     if (!userExists) throw new Error("User not found!");
 
+    if (type !== EnumUserType.standard && type !== EnumUserType.premium)
+      throw new Error("Type must be standard or premium");
+
+    if (username !== userExists.username) {
+      const existingUserWithUsername =
+        await this.usersRepository.findByUsername(username);
+      if (existingUserWithUsername) throw new Error("Username already exists!");
+    }
+
+    if (email !== userExists.email) {
+      const existingUserWithEmail = await this.usersRepository.findByEmail(
+        email
+      );
+      if (existingUserWithEmail) throw new Error("Email already exists!");
+    }
+
     if (password) {
       if (password.length < 8)
         throw new Error("Password must be at least 8 characters");

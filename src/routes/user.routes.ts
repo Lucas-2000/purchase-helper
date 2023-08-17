@@ -2,6 +2,7 @@ import { Request, Response, Router } from "express";
 import { CreateUserFactory } from "../services/user/create/createUserFactory";
 import { FindAllUsersFactory } from "../services/user/findAll/findAllUsersFactory";
 import { FindUserByIdFactory } from "../services/user/findById/findUserByIdFactory";
+import { UpdateUserFactory } from "../services/user/update/updateUserFactory";
 
 const userRoutes = Router();
 
@@ -13,6 +14,9 @@ userRoutes.get("/", (req: Request, res: Response) =>
 );
 userRoutes.get("/:id", (req: Request, res: Response) =>
   FindUserByIdFactory().handle(req, res)
+);
+userRoutes.put("/:id", (req: Request, res: Response) =>
+  UpdateUserFactory().handle(req, res)
 );
 
 export { userRoutes };
