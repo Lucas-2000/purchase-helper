@@ -11,13 +11,24 @@ datasource db {
 }
 
 model User {
-  id       String       @id() @default(uuid())
-  username String       @unique
-  email    String       @unique
-  password String
-  type     EnumUserType
+  id            String          @id() @default(uuid())
+  username      String          @unique
+  email         String          @unique
+  password      String
+  type          EnumUserType
+  ResetPassword ResetPassword[]
 
   @@map("users")
+}
+
+model ResetPassword {
+  id        String   @id() @default(uuid())
+  token     String   @unique
+  expiresAt DateTime
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+
+  @@map("reset_password")
 }
 
 enum EnumUserType {

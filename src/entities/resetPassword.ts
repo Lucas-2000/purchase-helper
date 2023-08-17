@@ -1,7 +1,7 @@
 export interface ResetPasswordProps {
   id?: string;
-  token?: string;
-  expiresAt?: Date;
+  token: string;
+  expiresAt: Date;
   userId: string;
 }
 
