@@ -3,6 +3,7 @@ import { CreateProductFactory } from "../services/product/create/createProductFa
 import { FindAllProductsFactory } from "../services/product/findAll/findAllProductsFactory";
 import { FindProductByUserIdAndProductIdFactory } from "../services/product/findByUserIdAndProductId/findProductByUserIdAndProductIdFactory";
 import { UpdateProductFactory } from "../services/product/update/updateProductFactory";
+import { DeleteProductFactory } from "../services/product/delete/deleteProductFactory";
 
 const productRoutes = Router();
 
@@ -17,6 +18,9 @@ productRoutes.get("/:productId/:userId", (req: Request, res: Response) =>
 );
 productRoutes.put("/:id", (req: Request, res: Response) =>
   UpdateProductFactory().handle(req, res)
+);
+productRoutes.delete("/:id", (req: Request, res: Response) =>
+  DeleteProductFactory().handle(req, res)
 );
 
 export { productRoutes };
