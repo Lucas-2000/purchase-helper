@@ -39,11 +39,11 @@ export class CreateProductService {
     const product = new Product({
       id: id ?? randomUUID(),
       name,
-      description,
-      price,
+      description: description ?? null,
+      price: price ?? null,
       quantity,
-      purchaseStart,
-      purchaseFinish,
+      purchaseStart: purchaseStart ?? null,
+      purchaseFinish: purchaseFinish ?? null,
       userId,
     });
 
