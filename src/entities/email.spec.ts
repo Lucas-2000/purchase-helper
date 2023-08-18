@@ -4,7 +4,7 @@ import { Email } from "./email";
 test("create email", () => {
   const email = new Email({
     email: "test@example.com",
-    token: "ijsfafjaofs",
+    body: "ijsfafjaofs",
     subject: "Reset de senha",
   });
 

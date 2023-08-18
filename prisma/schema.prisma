@@ -17,6 +17,7 @@ model User {
   password      String
   type          EnumUserType
   ResetPassword ResetPassword[]
+  Product       Product[]
 
   @@map("users")
 }
@@ -29,6 +30,20 @@ model ResetPassword {
   userId    String
 
   @@map("reset_password")
+}
+
+model Product {
+  id             String    @id() @default(uuid())
+  name           String
+  description    String?
+  price          Float?
+  quantity       Int
+  purchaseStart  DateTime?
+  purchaseFinish DateTime?
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId         String
+
+  @@map("products")
 }
 
 enum EnumUserType {

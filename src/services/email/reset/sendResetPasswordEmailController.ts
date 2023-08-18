@@ -7,11 +7,11 @@ export class SendResetPasswordEmailController {
   ) {}
 
   async handle(req: Request, res: Response) {
-    const { email, token, subject } = req.body;
+    const { email, body, subject } = req.body;
 
     const sendEmail = await this.sendResetPasswordEmailService.execute({
       email,
-      token,
+      body,
       subject,
     });
 

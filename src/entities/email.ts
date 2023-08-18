@@ -1,6 +1,6 @@
 export interface EmailProps {
   email: string;
-  token?: string;
+  body: string;
   subject: string;
 }
 
@@ -15,8 +15,8 @@ export class Email {
     return this.props.email;
   }
 
-  get token() {
-    return this.props.token;
+  get body() {
+    return this.props.body;
   }
 
   get subject() {
@@ -26,7 +26,7 @@ export class Email {
   getSummary(): EmailProps {
     return {
       email: this.props.email,
-      token: this.props.token,
+      body: this.props.body,
       subject: this.props.subject,
     };
   }

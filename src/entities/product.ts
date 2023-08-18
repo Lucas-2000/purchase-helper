@@ -1,12 +1,12 @@
-export class ProductProps {
+export interface ProductProps {
   id?: string;
   name: string;
-  description?: string;
-  price?: number;
+  description?: string | null;
+  price?: number | null;
   quantity: number;
-  purchaseStart?: Date;
-  purchaseFinish?: Date;
-  userId?: string;
+  purchaseStart?: Date | null;
+  purchaseFinish?: Date | null;
+  userId: string;
 }
 
 export class Product {
@@ -47,11 +47,19 @@ export class Product {
     return this.props.quantity;
   }
 
+  get purchaseStart() {
+    return this.props.purchaseStart;
+  }
+
+  get purchaseFinish() {
+    return this.props.purchaseFinish;
+  }
+
   get userId() {
     return this.props.userId;
   }
 
-  getSummary() {
+  getSummary(): ProductProps {
     return {
       id: this.props.id,
       name: this.props.name,

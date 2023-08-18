@@ -28,19 +28,19 @@ describe("Email Send Service", () => {
   //     password: "test123",
   //   });
 
-  //   const token = await genereatePasswordResetService.execute({
+  //   const body = await genereatePasswordResetService.execute({
   //     email: "test@example.com",
   //   });
 
-  //   const strToken = token.token as string;
+  //   const strbody = body.token as string;
 
   //   await expect(
   //     emailSendService.execute({
   //       email: "test@example.com",
-  //       token: strToken,
+  //       body: strbody,
   //       subject: "Reset de senha",
   //     })
-  //   ).resolves.toHaveProperty("token");
+  //   ).resolves.toHaveProperty("body");
   // });
 
   it("should not be able to send a email if user not found", async () => {
@@ -64,22 +64,22 @@ describe("Email Send Service", () => {
       type: EnumUserType.standard,
     });
 
-    const token = await genereatePasswordResetService.execute({
+    const body = await genereatePasswordResetService.execute({
       email: "test@example.com",
     });
 
-    const strToken = token.token as string;
+    const strToken = body.token as string;
 
     await expect(
       emailSendService.execute({
         email: "test1@example.com",
-        token: strToken,
+        body: strToken,
         subject: "Reset de senha",
       })
     ).rejects.toBeInstanceOf(Error);
   }, 20000);
 
-  it("should not be able to send a email if token is invalid", async () => {
+  it("should not be able to send a email if body is invalid", async () => {
     const usersRepository = new InMemoryUsersRepository();
     const passwordResetRepository = new InMemoryResetPasswordRepository();
     const emailSendService = new SendResetPasswordEmailService(
@@ -100,16 +100,16 @@ describe("Email Send Service", () => {
       type: EnumUserType.standard,
     });
 
-    const token = await genereatePasswordResetService.execute({
+    const body = await genereatePasswordResetService.execute({
       email: "test@example.com",
     });
 
-    token.token as string;
+    body.token as string;
 
     await expect(
       emailSendService.execute({
         email: "test1@example.com",
-        token: "strToken",
+        body: "strbody",
         subject: "Reset de senha",
       })
     ).rejects.toBeInstanceOf(Error);

@@ -5,7 +5,7 @@ import { transporter } from "../../../utils/config/nodemailer/nodemailerConfig";
 
 interface SendResetPasswordEmailRequest {
   email: string;
-  token: string;
+  body: string;
   subject: string;
 }
 
@@ -19,20 +19,20 @@ export class SendResetPasswordEmailService {
 
   async execute({
     email,
-    token,
+    body,
     subject,
   }: SendResetPasswordEmailRequest): Promise<SendResetPasswordEmailResponse> {
     const user = await this.usersRepository.findByEmail(email);
 
     if (!user) throw new Error("User not found!");
 
-    const tokenIsValid = await this.resetPasswordRepository.findByToken(token);
+    const tokenIsValid = await this.resetPasswordRepository.findByToken(body);
 
     if (!tokenIsValid) throw new Error("Invalid token!");
 
     const emailObj = new Email({
       email,
-      token,
+      body,
       subject,
     });
 
@@ -43,7 +43,7 @@ export class SendResetPasswordEmailService {
       text: `
         Olá ${user.username},
         \n
-        segue o token para reset de senha: ${emailObj.token}
+        segue o token para reset de senha: ${emailObj.body}
         \n
         Obs: o token tem validade de 24h.
       `,
