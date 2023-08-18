@@ -10,7 +10,7 @@ interface UpdateProductRequest {
   quantity: number;
   purchaseStart?: Date;
   purchaseFinish?: Date;
-  userId?: string;
+  userId: string;
 }
 
 type UpdateProductResponse = ProductProps;
@@ -31,7 +31,7 @@ export class UpdateProductService {
     purchaseFinish,
     userId,
   }: UpdateProductRequest): Promise<UpdateProductResponse> {
-    const product = await this.usersRepository.findById(id);
+    const product = await this.productsRepository.findById(id);
 
     if (!product) throw new Error("Product not found!");
 
