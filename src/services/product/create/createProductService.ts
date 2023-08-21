@@ -9,8 +9,6 @@ interface CreateProductRequest {
   description?: string;
   price?: number;
   quantity: number;
-  purchaseStart?: Date;
-  purchaseFinish?: Date;
   userId: string;
 }
 
@@ -28,8 +26,6 @@ export class CreateProductService {
     description,
     price,
     quantity,
-    purchaseStart,
-    purchaseFinish,
     userId,
   }: CreateProductRequest): Promise<CreateProductResponse> {
     const user = await this.usersRepository.findById(userId);
@@ -42,8 +38,6 @@ export class CreateProductService {
       description: description ?? null,
       price: price ?? null,
       quantity,
-      purchaseStart: purchaseStart ?? null,
-      purchaseFinish: purchaseFinish ?? null,
       userId,
     });
 

@@ -27,8 +27,6 @@ export class UpdateProductService {
     description,
     price,
     quantity,
-    purchaseStart,
-    purchaseFinish,
     userId,
   }: UpdateProductRequest): Promise<UpdateProductResponse> {
     const product = await this.productsRepository.findById(id);
@@ -45,8 +43,6 @@ export class UpdateProductService {
       description,
       price,
       quantity,
-      purchaseStart,
-      purchaseFinish,
       userId,
     });
 

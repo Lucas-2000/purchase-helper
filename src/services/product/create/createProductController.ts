@@ -5,16 +5,7 @@ export class CreateProductController {
   constructor(private createProductService: CreateProductService) {}
 
   async handle(req: Request, res: Response) {
-    const {
-      id,
-      name,
-      description,
-      price,
-      quantity,
-      purchaseStart,
-      purchaseFinish,
-      userId,
-    } = req.body;
+    const { id, name, description, price, quantity, userId } = req.body;
 
     const product = await this.createProductService.execute({
       id,
@@ -22,8 +13,6 @@ export class CreateProductController {
       description,
       price,
       quantity,
-      purchaseStart,
-      purchaseFinish,
       userId,
     });
 

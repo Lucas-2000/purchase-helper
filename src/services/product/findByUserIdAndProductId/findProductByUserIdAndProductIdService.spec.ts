@@ -36,8 +36,6 @@ describe("Find product by user id and product id", () => {
       name: "Coca cola 2l",
       price: 9.99,
       quantity: 1,
-      purchaseStart: new Date(),
-      purchaseFinish: new Date(new Date().getTime() + 60 * 60 * 1000),
       userId: "1",
     });
 
@@ -78,8 +76,6 @@ describe("Find product by user id and product id", () => {
       name: "Coca cola 2l",
       price: 9.99,
       quantity: 1,
-      purchaseStart: new Date(),
-      purchaseFinish: new Date(new Date().getTime() + 60 * 60 * 1000),
       userId: "1",
     });
 
@@ -120,8 +116,6 @@ describe("Find product by user id and product id", () => {
       name: "Coca cola 2l",
       price: 9.99,
       quantity: 1,
-      purchaseStart: new Date(),
-      purchaseFinish: new Date(new Date().getTime() + 60 * 60 * 1000),
       userId: "1",
     });
 

@@ -6,15 +6,7 @@ export class UpdateProductController {
 
   async handle(req: Request, res: Response) {
     const { id } = req.params;
-    const {
-      name,
-      description,
-      price,
-      quantity,
-      purchaseStart,
-      purchaseFinish,
-      userId,
-    } = req.body;
+    const { name, description, price, quantity, userId } = req.body;
 
     const product = await this.updateProductService.execute({
       id,
@@ -22,8 +14,6 @@ export class UpdateProductController {
       description,
       price,
       quantity,
-      purchaseStart,
-      purchaseFinish,
       userId,
     });
 

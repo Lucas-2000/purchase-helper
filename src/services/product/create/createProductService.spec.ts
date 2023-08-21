@@ -29,8 +29,6 @@ describe("Create product", () => {
         name: "Coca cola 2l",
         price: 9.99,
         quantity: 1,
-        purchaseStart: new Date(),
-        purchaseFinish: new Date(new Date().getTime() + 60 * 60 * 1000),
         userId: "1",
       })
     ).resolves.toHaveProperty("id");
@@ -60,8 +58,6 @@ describe("Create product", () => {
         name: "Coca cola 2l",
         price: 9.99,
         quantity: 1,
-        purchaseStart: new Date(),
-        purchaseFinish: new Date(new Date().getTime() + 60 * 60 * 1000),
         userId: "2",
       })
     ).rejects.toBeInstanceOf(Error);
@@ -91,8 +87,6 @@ describe("Create product", () => {
         name: "Coca cola 2l",
         price: -9.99,
         quantity: 1,
-        purchaseStart: new Date(),
-        purchaseFinish: new Date(new Date().getTime() + 60 * 60 * 1000),
         userId: "1",
       })
     ).rejects.toBeInstanceOf(Error);
@@ -122,39 +116,6 @@ describe("Create product", () => {
         name: "Coca cola 2l",
         price: 9.99,
         quantity: -1,
-        purchaseStart: new Date(),
-        purchaseFinish: new Date(new Date().getTime() + 60 * 60 * 1000),
-        userId: "1",
-      })
-    ).rejects.toBeInstanceOf(Error);
-  });
-
-  it("should not be able to create a product if purchase start is higher than purchase finish", async () => {
-    const productsRepository = new InMemoryProductsRepository();
-    const usersRepository = new InMemoryUsersRepository();
-
-    const createProduct = new CreateProductService(
-      productsRepository,
-      usersRepository
-    );
-
-    const createUser = new CreateUserService(usersRepository);
-
-    await createUser.execute({
-      id: "1",
-      username: "john",
-      email: "johndoe@example.com",
-      password: "test1234",
-      type: EnumUserType.standard,
-    });
-
-    await expect(
-      createProduct.execute({
-        name: "Coca cola 2l",
-        price: 9.99,
-        quantity: 1,
-        purchaseStart: new Date(new Date().getTime() + 60 * 60 * 1000),
-        purchaseFinish: new Date(),
         userId: "1",
       })
     ).rejects.toBeInstanceOf(Error);

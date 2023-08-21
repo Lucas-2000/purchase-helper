@@ -9,8 +9,6 @@ export class PrismaProductsRepository implements ProductsRepository {
     description,
     price,
     quantity,
-    purchaseStart,
-    purchaseFinish,
     userId,
   }: Product): Promise<void> {
     await prisma.product.create({
@@ -20,8 +18,6 @@ export class PrismaProductsRepository implements ProductsRepository {
         description,
         price,
         quantity,
-        purchaseStart,
-        purchaseFinish,
         userId,
       },
     });
@@ -38,8 +34,6 @@ export class PrismaProductsRepository implements ProductsRepository {
           description: product.description,
           price: product.price,
           quantity: product.quantity,
-          purchaseStart: product.purchaseStart,
-          purchaseFinish: product.purchaseFinish,
           userId: product.userId,
         })
     );
@@ -60,8 +54,6 @@ export class PrismaProductsRepository implements ProductsRepository {
       description: product.description,
       price: product.price,
       quantity: product.quantity,
-      purchaseStart: product.purchaseStart,
-      purchaseFinish: product.purchaseFinish,
       userId: product.userId,
     });
   }
@@ -85,8 +77,6 @@ export class PrismaProductsRepository implements ProductsRepository {
       description: product.description,
       price: product.price,
       quantity: product.quantity,
-      purchaseStart: product.purchaseStart,
-      purchaseFinish: product.purchaseFinish,
       userId: product.userId,
     });
   }
@@ -106,8 +96,6 @@ export class PrismaProductsRepository implements ProductsRepository {
     description,
     price,
     quantity,
-    purchaseStart,
-    purchaseFinish,
     userId,
   }: Product): Promise<void> {
     await prisma.product.update({
@@ -117,8 +105,6 @@ export class PrismaProductsRepository implements ProductsRepository {
         description,
         price,
         quantity,
-        purchaseStart,
-        purchaseFinish,
         userId,
       },
     });

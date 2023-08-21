@@ -4,8 +4,7 @@ export interface ProductProps {
   description?: string | null;
   price?: number | null;
   quantity: number;
-  purchaseStart?: Date | null;
-  purchaseFinish?: Date | null;
+
   userId: string;
 }
 
@@ -13,16 +12,11 @@ export class Product {
   private props: ProductProps;
 
   constructor(props: ProductProps) {
-    const { purchaseStart, purchaseFinish, price, quantity } = props;
+    const { price, quantity } = props;
 
     if ((price as number) < 0) throw new Error("Invalid price");
 
     if (quantity < 0) throw new Error("Invalid quantity");
-
-    if ((purchaseStart as Date) > (purchaseFinish as Date))
-      throw new Error(
-        "Purchase finish datetime must be higher than purchase start datetime"
-      );
 
     this.props = props;
   }
@@ -47,14 +41,6 @@ export class Product {
     return this.props.quantity;
   }
 
-  get purchaseStart() {
-    return this.props.purchaseStart;
-  }
-
-  get purchaseFinish() {
-    return this.props.purchaseFinish;
-  }
-
   get userId() {
     return this.props.userId;
   }
@@ -66,8 +52,6 @@ export class Product {
       description: this.props.description,
       price: this.props.price,
       quantity: this.props.quantity,
-      purchaseStart: this.props.purchaseStart,
-      purchaseFinish: this.props.purchaseFinish,
       userId: this.props.userId,
     };
   }

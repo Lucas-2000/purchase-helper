@@ -33,15 +33,13 @@ model ResetPassword {
 }
 
 model Product {
-  id             String    @id() @default(uuid())
-  name           String
-  description    String?
-  price          Float?
-  quantity       Int
-  purchaseStart  DateTime?
-  purchaseFinish DateTime?
-  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId         String
+  id          String  @id() @default(uuid())
+  name        String
+  description String?
+  price       Float?
+  quantity    Int
+  user        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String
 
   @@map("products")
 }
