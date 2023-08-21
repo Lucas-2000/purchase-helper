@@ -42,10 +42,12 @@ export class InMemoryProductsRepository implements ProductsRepository {
   }
 
   async delete(id: string): Promise<void> {
-    const userIndex = this.products.findIndex((product) => product.id === id);
+    const productIndex = this.products.findIndex(
+      (product) => product.id === id
+    );
 
-    if (userIndex !== -1) {
-      this.products.splice(userIndex, 1);
+    if (productIndex !== -1) {
+      this.products.splice(productIndex, 1);
     }
   }
 }
