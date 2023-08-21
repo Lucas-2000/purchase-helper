@@ -4,7 +4,6 @@ export interface ProductProps {
   description?: string | null;
   price?: number | null;
   quantity: number;
-
   userId: string;
 }
 
