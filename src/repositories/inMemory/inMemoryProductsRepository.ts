@@ -16,6 +16,16 @@ export class InMemoryProductsRepository implements ProductsRepository {
     return this.products.find((product) => product.id === id);
   }
 
+  async findByUserId(userId: string): Promise<Product[] | undefined> {
+    const products = this.products.filter(
+      (product) => userId === product.userId
+    );
+
+    if (!products) return;
+
+    return products;
+  }
+
   async findByProductIdAndUserId(
     productId: string,
     userId: string

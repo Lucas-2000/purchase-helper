@@ -3,6 +3,7 @@ export interface ProductsRepository {
   create(product: Product): Promise<void>;
   findAll(): Promise<Product[]>;
   findById(id: string): Promise<Product | undefined>;
+  findByUserId(userId: string): Promise<Product[] | undefined>;
   findByProductIdAndUserId(
     productId: string,
     userId: string

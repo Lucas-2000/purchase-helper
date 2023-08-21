@@ -58,6 +58,24 @@ export class PrismaProductsRepository implements ProductsRepository {
     });
   }
 
+  async findByUserId(userId: string): Promise<Product[] | undefined> {
+    const products = await prisma.product.findMany({
+      where: { userId: userId },
+    });
+
+    return products.map(
+      (product) =>
+        new Product({
+          id: product.id,
+          name: product.name,
+          description: product.description,
+          price: product.price,
+          quantity: product.quantity,
+          userId: product.userId,
+        })
+    );
+  }
+
   async findByProductIdAndUserId(
     productId: string,
     userId: string
