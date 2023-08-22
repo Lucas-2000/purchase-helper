@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
-import { ProductProps } from "../../../entities/product";
 import {
+  ProductId,
   PurchaseList,
   PurchaseListProps,
 } from "../../../entities/purchaseList";
@@ -10,7 +10,7 @@ import { UsersRepository } from "../../../repositories/usersRepository";
 interface CreatePurchaseListServiceRequest {
   id: string;
   listName: string;
-  products: ProductProps[];
+  products: ProductId[];
   purchaseStart?: Date | null;
   purchaseFinish?: Date | null;
   userId: string;

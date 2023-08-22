@@ -52,10 +52,7 @@ describe("Find purchase list by list and user id", () => {
       listName: "Lista 1",
       products: [
         {
-          name: "Coca cola 2l",
-          price: 9.99,
-          quantity: 1,
-          userId: "1",
+          id: "1",
         },
       ],
       purchaseStart: new Date(),
@@ -114,10 +111,7 @@ describe("Find purchase list by list and user id", () => {
       listName: "Lista 1",
       products: [
         {
-          name: "Coca cola 2l",
-          price: 9.99,
-          quantity: 1,
-          userId: "1",
+          id: "1",
         },
       ],
       purchaseStart: new Date(),
@@ -176,10 +170,7 @@ describe("Find purchase list by list and user id", () => {
       listName: "Lista 1",
       products: [
         {
-          name: "Coca cola 2l",
-          price: 9.99,
-          quantity: 1,
-          userId: "1",
+          id: "1",
         },
       ],
       purchaseStart: new Date(),

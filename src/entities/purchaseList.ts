@@ -1,9 +1,11 @@
-import { ProductProps } from "./product";
+export interface ProductId {
+  id: string;
+}
 
 export interface PurchaseListProps {
   id: string;
   listName: string;
-  products: ProductProps[];
+  products: ProductId[];
   purchaseStart?: Date | null;
   purchaseFinish?: Date | null;
   userId: string;

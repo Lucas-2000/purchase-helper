@@ -1,5 +1,5 @@
-import { ProductProps } from "../../../entities/product";
 import {
+  ProductId,
   PurchaseList,
   PurchaseListProps,
 } from "../../../entities/purchaseList";
@@ -9,7 +9,7 @@ import { UsersRepository } from "../../../repositories/usersRepository";
 interface UpdatePurchaseListRequest {
   id: string;
   listName: string;
-  products: ProductProps[];
+  products: ProductId[];
   purchaseStart?: Date | null;
   purchaseFinish?: Date | null;
   userId: string;

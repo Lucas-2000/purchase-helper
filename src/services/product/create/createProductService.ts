@@ -37,7 +37,7 @@ export class CreateProductService {
       name,
       description: description ?? null,
       price: price ?? null,
-      quantity,
+      quantity: quantity ?? null,
       userId,
     });
 

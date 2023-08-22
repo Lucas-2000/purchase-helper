@@ -3,7 +3,7 @@ export interface ProductProps {
   name: string;
   description?: string | null;
   price?: number | null;
-  quantity: number;
+  quantity?: number | null;
   userId: string;
 }
 
@@ -15,7 +15,7 @@ export class Product {
 
     if ((price as number) < 0) throw new Error("Invalid price");
 
-    if (quantity < 0) throw new Error("Invalid quantity");
+    if ((quantity as number) < 0) throw new Error("Invalid quantity");
 
     this.props = props;
   }

@@ -50,10 +50,7 @@ describe("Find all purchase lists", () => {
       listName: "Lista 1",
       products: [
         {
-          name: "Coca cola 2l",
-          price: 9.99,
-          quantity: 1,
-          userId: "1",
+          id: "1",
         },
       ],
       purchaseStart: new Date(),
