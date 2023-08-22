@@ -2,10 +2,11 @@
 
 ## Objectives
 
-- [] Authenticate users;
-- [] Create products;
-- [] Manage products;
-- [] Send email to reset password;
+- [x] Authenticate users;
+- [x] Create products;
+- [x] Manage products;
+- [x] CRUD purchase list;
+- [x] Send email to reset password;
 
 ## Technologies
 
@@ -13,3 +14,5 @@
 - Typescript;
 - JWT Token;
 - Vitest;
+- Prisma ORM;
+- Nodemailer;
