@@ -3,6 +3,7 @@ import { PurchaseList } from "../entities/purchaseList";
 export interface PurchaseListsRepository {
   create(purchaseList: PurchaseList): Promise<void>;
   findAll(): Promise<PurchaseList[]>;
+  findById(id: string): Promise<PurchaseList | undefined>;
   findByPurchaseListIdAndUserId(
     purchaseListId: string,
     userId: string

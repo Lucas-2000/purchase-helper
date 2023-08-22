@@ -14,6 +14,16 @@ export class InMemoryPurchaseListsRepository
     return this.purchaseLists;
   }
 
+  async findById(purchaseListId: string): Promise<PurchaseList | undefined> {
+    const purchaseList = this.purchaseLists.find(
+      (purchaseList) => purchaseList.id === purchaseListId
+    );
+
+    if (!purchaseList) return;
+
+    return purchaseList;
+  }
+
   async findByPurchaseListIdAndUserId(
     purchaseListId: string,
     userId: string
